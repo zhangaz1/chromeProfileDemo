@@ -47,9 +47,11 @@
             };
         }
 
-        function setInterval(fn) {
-            fn();
-        }
+        // function setInterval(fn) {
+        //     fn();
+        // }
+
+        setInterval = setTimeout;
 
         function largeClosures() {
             stopInterval();
