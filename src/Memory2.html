@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+</head>
+
+<body>
+    <div id="nodes"></div>
+
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+    <script type="text/javascript">
+        var intervalId = null,
+            params;
+
+        function createChunks() {
+            var div, foo, i, str;
+            for (i = 0; i < 20; i++) {
+                div = document.createElement("div");
+                str = new Array(1000000).join('x');
+                foo = {
+                    str: str,
+                    div: div
+                };
+                div.foo = foo;
+            }
+            window.div = div;
+        }
+
+        function start() {
+            if (intervalId) {
+                return;
+            }
+            intervalId = setInterval(createChunks, 1000);
+        }
+
+        function stop() {
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+            intervalId = null;
+        }
+
+        document.getElementById('start').addEventListener('click', start, true);
+        document.getElementById('stop').addEventListener('click', stop, true);
+    </script>
+</body>
+
+</html>
