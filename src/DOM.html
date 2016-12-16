@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+</head>
+
+<body>
+
+    <div id="refA">
+        <ul>
+            <li>
+                <a></a>
+            </li>
+            <li>
+                <a></a>
+            </li>
+            <li>
+                <a id="#refB"></a>
+            </li>
+        </ul>
+    </div>
+    <div></div>
+    <div></div>
+
+    <button id="btn"> click me</button>
+
+
+
+    <script type="text/javascript">
+        function c() {
+            refA = document.getElementById('refA');
+            refB = document.getElementById('refB');
+            //refB引用了refA。它们之间是dom树父节点和子节点的关系。
+        }
+
+        document.getElementById('btn').addEventListener('click', c, true);
+    </script>
+</body>
+
+</html>
