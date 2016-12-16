@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+</head>
+
+<body>
+    <button id="btn"> click me</button>
+
+    <script type="text/javascript">
+        function c() {
+            var obj = {
+                a: 1
+            };
+            obj.pro = {
+                a: 100
+            };
+            obj.pro.pro = {
+                b: 200
+            };
+            var two = obj.pro.pro;
+        }
+
+        document.getElementById('btn').addEventListener('click', c, true);
+    </script>
+</body>
+
+</html>
