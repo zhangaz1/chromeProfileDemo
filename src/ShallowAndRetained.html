@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+</head>
+
+<body>
+    <button id="btn"> click me</button>
+
+    <script type="text/javascript">
+        function c() {
+            function a() {
+                var obj = [1, 2, 3, 4, 5];
+                return function() {
+                    //js作用域的原因，在此闭包运行的上下文中可以访问到obj这个对象
+                    console.log(obj);
+                }
+            }
+            //正常情况下，a函数执行完毕 obj占用的内存会被回收，但是此处a函数返回了一个函数表达式（见Tom大叔的博客函数表达式和函数声明），其中obj因为js的作用域的特殊性一直存在，所以我们可以说b引用了obj。
+            b = a();
+            //每次执行b函数的时候都可以访问到obj，说明内存未被回收 所以对于obj来说直接占用内存[1,2,....n], 而b依赖obj，所obj是b的最大内存。
+            b()
+        }
+
+        document.getElementById('btn').addEventListener('click', c, true);
+    </script>
+</body>
+
+</html>
