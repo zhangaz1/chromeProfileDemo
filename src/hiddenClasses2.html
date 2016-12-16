@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+</head>
+
+<body>
+    <p><button onclick="slow()">slow</button></p>
+    <p><button onclick="fast()">fast</button></p>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>slow</th>
+                <th>fast</th>
+            </tr>
+
+            <tr>
+                <td id="slow"></td>
+                <td id="fast"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        'use strict';
+
+        function slow() {
+            var PROPERTIES = 10000000;
+            var o = {};
+
+            var start = +new Date;
+
+            for (var i = 0; i < PROPERTIES; i++) {
+                o[i] = i;
+            }
+
+            console.log(+new Date - start);
+        }
+
+        function fast() {
+            var PROPERTIES = 10000000;
+
+            function O(size) {
+                for (var i = 0; i < size; i++) {
+                    this[i] = null;
+                }
+            }
+
+            var o = new O(PROPERTIES);
+
+            var start = +new Date;
+
+            for (var i = 0; i < PROPERTIES; i++) {
+                o[i] = i;
+            }
+
+            console.log(+new Date - start);
+        }
+    </script>
+
+
+</body>
+
+</html>
