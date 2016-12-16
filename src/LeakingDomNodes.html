@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+
+</head>
+
+<body>
+    <button id="btn"> click me</button>
+
+    <script type="text/javascript">
+        'use strict';
+
+        var leakedNodes = [];
+
+        function createNode(text) {
+            var div = document.createElement("div"),
+                innerDiv = document.createElement("div");
+            innerDiv.appendChild(document.createTextNode(text + " - " + new Date().toTimeString()));
+            div.appendChild(innerDiv);
+            return div;
+        }
+
+        function createLeakedNodes() {
+            var i;
+            for (i = 0; i < 200000; i++) {
+                leakedNodes.push(createNode("Leaked:" + i));
+            }
+        }
+
+        function createGCNodes() {
+            var i;
+            for (i = 0; i < 200000; i++) {
+                createNode("Collected:" + i);
+            }
+        }
+
+        function createNodes() {
+            createLeakedNodes();
+            createGCNodes();
+        }
+
+        document.getElementById('btn').addEventListener('click', createNodes, true);
+    </script>
+</body>
+
+</html>
