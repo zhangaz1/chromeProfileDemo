@@ -4,9 +4,29 @@
 <head>
     <title></title>
 
+    <style>
+        /*#content .gallery ul,*/
+
+        #content .gallery ul li {
+            position: relative;
+        }
+    </style>
 </head>
 
 <body>
+    <ul class="tabs">
+        <li id="first" data-load="templates/template1.html" class="active">Summer</li>
+
+        <li id="second" data-load="templates/template2.html" class="">Autumn</li>
+
+        <li id="third" data-load="templates/template3.html" class="">Winter</li>
+
+        <li id="third" data-load="templates/template4.html" class="">Spring</li>
+    </ul>
+
+    <div id="content">
+
+    </div>
 
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', bindTabs);
